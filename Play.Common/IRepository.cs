@@ -1,11 +1,15 @@
-﻿namespace Play.Common
+﻿using System.Linq.Expressions;
+
+namespace Play.Common
 {
     public interface IRepository<T> where T : IEntity
     {
         Task CreateAsync(T entity);
-        Task DeleteAsync(Guid id);
-        Task<IReadOnlyCollection<T>> GetAsync();
+        Task<IReadOnlyCollection<T>> GetManyAsync();
+        Task<IReadOnlyCollection<T>> GetManyAsync(Expression<Func<T, bool>> filter);
         Task<T> GetAsync(Guid id);
+        Task<T> GetAsync(Expression<Func<T, bool>> filter);
         Task UpdateAsync(T entity);
+        Task DeleteAsync(Guid id);
     }
 }

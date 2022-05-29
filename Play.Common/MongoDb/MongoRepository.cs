@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using System.Linq.Expressions;
+using MongoDB.Driver;
 
 namespace Play.Common.MongoDb
 {
@@ -12,18 +13,6 @@ namespace Play.Common.MongoDb
             _dbCollection = database.GetCollection<T>(collectionName);
         }
 
-        public async Task<IReadOnlyCollection<T>> GetAsync()
-        {
-            var result = await _dbCollection.Find(_filterBuilder.Empty).ToListAsync();
-            return result;
-        }
-
-        public async Task<T> GetAsync(Guid id)
-        {
-            var filter = _filterBuilder.Eq(e => e.Id, id);
-            return await _dbCollection.Find(filter).FirstOrDefaultAsync();
-        }
-
         public async Task CreateAsync(T entity)
         {
             if (entity == null)
@@ -32,6 +21,27 @@ namespace Play.Common.MongoDb
             }
 
             await _dbCollection.InsertOneAsync(entity);
+        }
+
+        public async Task<IReadOnlyCollection<T>> GetManyAsync()
+        {
+            return await _dbCollection.Find(_filterBuilder.Empty).ToListAsync();
+        }
+
+        public async Task<IReadOnlyCollection<T>> GetManyAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _dbCollection.Find(filter).ToListAsync();
+        }
+
+        public async Task<T> GetAsync(Guid id)
+        {
+            var filter = _filterBuilder.Eq(e => e.Id, id);
+            return await _dbCollection.Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task<T> GetAsync(Expression<Func<T, bool>> filter)
+        {
+            return await _dbCollection.Find(filter).FirstOrDefaultAsync();
         }
 
         public async Task UpdateAsync(T entity)
