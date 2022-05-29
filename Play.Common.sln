@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1703.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Common", "Play.Common\Play.Common.csproj", "{836AE3FC-AAED-40CF-92A3-7B09228D5179}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mozart.Play.Common", "Play.Common\Mozart.Play.Common.csproj", "{836AE3FC-AAED-40CF-92A3-7B09228D5179}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

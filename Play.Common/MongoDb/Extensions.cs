@@ -4,9 +4,9 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Play.Common.Settings;
+using Mozart.Play.Common.Settings;
 
-namespace Play.Common.MongoDb
+namespace Mozart.Play.Common.MongoDb
 {
     public static class Extensions
     {

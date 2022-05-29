@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using MongoDB.Driver;
 
-namespace Play.Common.MongoDb
+namespace Mozart.Play.Common.MongoDb
 {
     public class MongoRepository<T> : IRepository<T> where T : IEntity
     {

@@ -1,4 +1,4 @@
-namespace Play.Common.Settings
+namespace Mozart.Play.Common.Settings
 {
     public class MongoDbSettings
     {

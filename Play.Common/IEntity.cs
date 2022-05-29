@@ -1,4 +1,4 @@
-﻿namespace Play.Common
+﻿namespace Mozart.Play.Common
 {
     public interface IEntity
     {
